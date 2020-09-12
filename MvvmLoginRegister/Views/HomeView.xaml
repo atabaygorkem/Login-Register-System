@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="MvvmLoginRegister.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MvvmLoginRegister.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="530.866" d:DesignWidth="722.32" Background="AliceBlue">
+
+    <Grid Margin="10,10,0,0" Height="370" HorizontalAlignment="Center" VerticalAlignment="Center" Width="479">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="202.795"/>
+            <RowDefinition Height="15.205"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="518"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Log In" HorizontalAlignment="Left" Margin="251,40,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding TempUser.UserName, Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="213,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.82,0.671" AutomationProperties.AutomationId="LogUserName"/>
+
+        <PasswordBox x:Name="pbPassword" Margin="0,150,185,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120" RenderTransformOrigin="1.015,0.841" AutomationProperties.AutomationId="LogPass"/>
+        <Button Click="Button_Click" Content="Log In" HorizontalAlignment="Left" Margin="238,194,0,0" VerticalAlignment="Top" Width="75"  RenderTransformOrigin="0.536,0.438" Grid.RowSpan="2" AutomationProperties.AutomationId="LogLogButton"/>
+
+        <Label Content="UserName" HorizontalAlignment="Right" Margin="0,100,336,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Password" HorizontalAlignment="Right" Margin="0,155,336,0" VerticalAlignment="Top" Width="73"/>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,56 @@
+﻿<Window x:Class="MvvmLoginRegister.Views.NotesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmLoginRegister.Views"
+        xmlns:viewmodels="clr-namespace:MvvmLoginRegister.ViewModels"
+        mc:Ignorable="d"
+        Title="NotesView" Height="523.408" Width="748.97" Background="PowderBlue">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="465" Margin="10,10,2,18" Width="729" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="518"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox Text="{Binding CurrentNote.UserNotes, Mode=TwoWay}" HorizontalAlignment="Left" Height="46" Margin="238,32,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="272"/>
+        <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="324,83,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <ListView ItemsSource="{Binding Path = NotesList}" Margin="171,13,-55,-248" Grid.ColumnSpan="2" Grid.Row="6" >
+            <ListView.View>
+                <GridView >
+                    <GridViewColumn Header="NoteID" DisplayMemberBinding="{Binding NoteId}" Width="60"/>
+                    <GridViewColumn Header="Notes" DisplayMemberBinding="{Binding UserNotes}" Width="60"/>
+                    <GridViewColumn Header="CreateTime" DisplayMemberBinding="{Binding NoteTime}" Width="60"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+       
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" Margin="258,254,41,-296" Width="221">
+            <Button Command="{Binding PreviousPageC}" Margin="10" Width="35" Content="&lt;" />
+            <TextBlock Text="{Binding PageInfo.CurrentPageNo}" HorizontalAlignment="Left" Margin="10,12,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19"/>
+            <Label Content="/" Grid.Column="1" HorizontalAlignment="Left" Margin="10,6,10,0" VerticalAlignment="Top" Width="15"/>
+            <TextBlock Text="{Binding PageInfo.TotalPageNo, Mode=TwoWay}" HorizontalAlignment="Right" Margin="10,12,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="20"/>
+            <Button Command="{Binding NextPageC}" Margin="10,8,10,12" Width="35" Content="&gt;"/>
+        </StackPanel>
+        <TextBox Text="{Binding SearchStr, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="46" Margin="78,32,-197,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Command="{Binding SearchCommand}" Content="Search" Grid.Column="1" HorizontalAlignment="Left" Margin="101,83,-175,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+
+</Window>
