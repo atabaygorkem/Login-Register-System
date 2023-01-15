@@ -1,4 +1,4 @@
-> Only god knows how this project works
+> Only God knows how this project works
 
 ---
 
